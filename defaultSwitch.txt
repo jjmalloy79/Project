@@ -1,0 +1,26 @@
+Switch:
+Check your cabling. Always start by assuming the problem is with the cable. Swap with a cable that is known to work. This may not be the case all the time, but in some instances, you might have to substitute the crossover cable. It may not have the auto-MDIX crossover function, so you may actually have to do something manually.You can also verify that the hardware is functional. You can use the show controllers command to see if there’s something physically wrong with it, or try a different port on the switch to see if the same problem is happening.
+Check your interface. Verify that the interface is operational and use the no shutdown command. That would take care of “administratively down” cases or if it’s been put into error-disabled state by one of the Layer 2 protocols and so forth.
+Set the speed and duplex settings to autonegotiate on both ends.
+Manually configure speed and duplex settings on both ends (i.e., if one device has issues) so that they’re the same.
+Execute a show running-configurationcommand. Examine the output and verify whether the following entries are on the port that’s affected: switchport mode access, and switchport access vlan If something’s missing from that, add what you need. Some of the more automated trunking type mechanisms and similar stuff can create this type of issue if you don’t have it specifically set for access mode and the specific VLAN.
+Execute the show vlan command. If it shows “down,” make sure there’s at least one port that’s identified as part of the specified VLAN, or a switch virtual interface in that VLAN.
+If you’re using ISL trunking, make sure the switch on the other side supports ISL. If it doesn’t, then you need to change it.
+If you’re using 802.1Q trunking, you may have different native VLANs configured on either side. If that’s the case, change the native VLANs to match.
+Verify the trunking settings on both ends of the link are the same (e.g. DTP, mode encapsulation, etc.).
+The first thing you need to make sure is that the links on both sides, between the client and the server, are configured as trunks and that their trunking types match.
+Verify that the VTP domains match and adjust if necessary.
+Verify that the switch you intend to serve as master is no longer in transparent mode or client mode. Make sure it’s in server mode and that the other switch is in client mode.
+If you’re using an external router, first make sure that that router’s reachable. Going back to our figure, if the workstation on VLAN 1 can’t reach the VLAN 1 interface on Router 1, there may be a connectivity issue or misconfiguration issue.If you’re having some other issue, you may have to troubleshoot routing. But if VLAN 1 workstation can reach Router 1’s VLAN interface and VLAN 11 can do the same thing with Router 1’s VLAN interface, then there may be something in the router you need to look at.
+If you’re using a Layer 4 Route Processor, make sure that the Switched Virtual Interfaces (SVI) have been configured with the correct VLAN ID and IP subnet information.
+Verify that a default gateway exists on the switch.
+If you’re using Portfast and you have any of those guard features enabled, make sure there are no other devices creating those protocol units being sent to that port.
+Make sure no uni-directional links or one-way links exist.
+In a worst case scenario, just issue a shutdown/no shutdown command to reset that port.
+One of the things that you have to make sure is that Etherchannel parameters have to match at both ends. They have to be the same type on the switch (e.g. FastEthernet, Gigabit Ethernet, etc.).You can have a FastEthernet on one switch going into a Gigabit on the other, but if you have a FastEthernet and a Gigabit Ethernet configured on that switch to go to the other switch, it’s not going to work.
+Verify that the same protocol has been configured on all ports (e.g. PAGP, LACP, etc.). Make sure that they’re the same on both ends.
+Make sure you use identical trunking configurations, including native VLANs, when using 802.1Q.
+Always start with the Physical Layer. Confirm that the interface is Up/Up. Verify that the cabling is operational. People often spend a lot of time troubleshooting other things, only to realize the problem is just the cable.
+Use the Cisco Discovery Protocol to verify Layer 2 connectivity. If you have it turned off, turn it on just for testing purposes. Execute the show cdp neighbors command and verify whether the device names you’re expecting to see and the types on both ends of the links are actually there.
+If there are no neighbors being shown and you think you have everything configured the way they should be, then you may have a Layer 2 issue of some kind. In that case, you’ll be able to isolate the problem to a specific layer in the OSI model.
+Look at your ARP Mappings. Use the show arp command on both devices and watch for entries listing incorrect MAC addresses or a description of incomplete. If it’s incomplete, you may have some other kind of issue.Also, to verify ARP Mappings, issue a ping command to the IP address on the opposite end of the link. If the ping fails or the ARP entries appear incorrect, examine the possible causes.n

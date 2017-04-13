@@ -1,0 +1,7 @@
+Other:
+Make sure all connections are securely connected. (If applies).
+Check all setting on the device to make sure that it is properly configured. 
+If wireless, try to ping the device. If not wireless connect another device to the wire and try pinging the router or a website.
+If wired and ping did not work replace Ethernet cable with the proper Ethernet cable and test with equipment and a laptop by pinging a device. If wireless check and see if there is a good connectivity by doing a speed test and ping the closet device (the local Wifi device could be the issue).
+If wired replace the jack and ping again to see if that is the issue. If Wifi go to Wifi computers to trouble shoot.
+If jack does not work go to the next device in line (switch or router) and unplug the Ethernet cable that connects to the device with the problems and connect a computer into the port, you unplugged from and try ping from a laptop directly to that device. If this solves the issue, then the Ethernet cable from device to switch or router needs replacing. If problem continues go to the next device in lines troubleshooting section.

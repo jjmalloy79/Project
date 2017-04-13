@@ -1,0 +1,16 @@
+References:
+Switches and Vlan:
+https://www.petri.com/troubleshoot-vlan-switch
+Wifi:
+http://searchnetworking.techtarget.com/tip/Wireless-network-troubleshooting-Connectivity
+https://support.google.com/nexus/answer/6183600?hl=en
+Router:
+https://www.soundtraining.net/i-t-tutorials/cisco-tutorials/70-cisco-router-basic-troubleshooting-checklist
+Server:
+http://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/ts/guide/TS_C-Series/TS_2Server.pdf
+http://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/ts/guide/b_C-Series_Troubleshooting_Guide.html
+Wired:
+http://support.hp.com/us-en/document/c04649156
+Pinging:
+http://www.linksys.com/sa/support-article?articleNum=140557
+	

@@ -1,0 +1,37 @@
+Computer WiFi:
+Verify that devices at both ends of each Ethernet cable are powered on and that ports are enabled. For example, your AP may be connected to a wall port that is disabled, or the upstream switch or modem may be off.
+Try swapping Ethernet cables to isolate a damaged cable or connector.
+Check your AP or router manual to ensure that you're using the right type of cable. For example, Internet/WAN ports may require crossover cables.
+Connect another Ethernet-capable device, such as a laptop, to the affected AP or router port. If link status LEDs change, the device that you just replaced may be failing link auto-negotiation. Check port configurations at both ends and reconfigure as needed to match speed and duplex mode.
+When using a Windows client, select your wireless network adapter from the Network Connections Control Panel and check to see if its status is Enabled. If not, right-click to enable the connection. If this fails when using a laptop, look for a function key or physical button or slider-switch to take the laptop out of airplane mode. If this fails when using a removable client such as a USB adapter, remove and re-insert it.
+Locate the SSID that you're troubleshooting. On a basic wireless router, there may be just one SSID, or one for each radio band (2.4 GHz and 5 GHz). On a small business or enterprise AP, there may be several SSIDs used to segregate wireless clients and their traffic.
+Identify the IP subnet [and, if applicable, virtual LAN (VLAN) ID] assigned to that SSID. Upon successful connection, your Wi-Fi client should receive a local IP address from this subnet.
+Identify the router or AP's own local IP address that should be reachable through this subnet (and, if applicable, VLAN).
+Check your router's events log or status GUI to verify that an IP address from this subnet is indeed assigned to your Wi-Fi client when it connects.
+Open the network connections control panel and select your wireless network adapter. If the status is still Disabled, return to step 2.
+If status is Not Connected, select your wireless network's SSID and click Connect. If your network's SSID does not appear in the list or you cannot connect to your network, go to step 8 to debug wireless settings.
+While attempting to connect, status may change briefly to Authenticating or Acquiring Network Address, then Connected. At that point, use Status/Support to determine the client's assigned IP address. If the client's IP is 0.0.0.0 or 169.254.x.x, click Diagnose. If that persists, go to step 8.
+Otherwise, if the Wi-Fi client's IP address is not in your AP or router's subnet, use the Properties/Internet (TCP/IP) panel to reconfigure the connection to get an address automatically and repeat step 4.
+If pinging your AP or router is successful, then ping any other wired or wireless LAN client that you wish to share files or printers with. If that ping fails, then the destination may be using a firewall to block incoming messages.
+After disabling the destination's Windows firewall, ping again. If ping is now successful, then the firewall you disabled may also be blocking Windows network protocols. Reconfigure the firewall to permit the traffic you want to exchange between LAN clients. For example, re-enable the firewall and permit inbound file and printer sharing.
+If your SSID does not appear in the Client's Available Networks list, enable SSID broadcasts on your AP or router. Alternatively, add the SSID to your client's Wireless Networks list, allowing devices to connect even if the SSID is hidden. Be sure to match the SSID exactly, including capitalization.
+802.11ac, dual-band 802.11n and older 802.11a clients can connect to 802.11ac or 802.11n APs or routers using channels in the 5 GHz band.
+802.11n and older 802.11b/g clients can also connect to 802.11n APs or routers using channels in the 2.4 GHz band.
+To connect older 802.11a or 802.11b/g clients, enable Mixed Mode and slower modulation and coding scheme rates on your AP or router. For example, to connect to 802.11b clients, at least the 11 Mbps rate must be enabled. To connect to 802.11g clients, at least the 54 Mbps rate must be supported. Even slow rates are needed to connect to old clients over longer distances.
+If your AP or router uses WEP, set the client's encryption to WEP and match the authentication type (open or shared). Copy the AP or router's first WEP key to the client, translating from ASCII to hex if needed.
+If your AP or router uses WPA-Personal, set the client's authentication to WPA-PSK and match the encryption type (TKIP). Enter the same passphrase on both devices Remember: Capitalization counts!
+If your AP or router uses WPA2-Personal, set the client's authentication to WPA2-PSK, match the encryption type (AES) and enter the same passphrase on both devices. If you must support both WPA and WPA2 clients, set your AP or router to allow both TKIP and AES encryption.
+If your AP or router uses WPA or WPA2-Enterprise, set the client's authentication to WPA or WPA2 respectively, match the encryption type and continue 802.1X set-up in step 8.
+Reconfigure your AP or router and server with a matching RADIUS secret.
+Reconfigure your RADIUS server to accept requests from your AP or router.
+Use ping to verify AP or router-to-RADIUS server network reachability.
+Watch LAN packet counters to verify that RADIUS is being sent, or use a LAN analyzer debug RADIUS protocol issues.
+If your server requires EAP-TLS, select Smart Card or other Certificate on the client's Network Properties/Authentication panel.
+If your server requires PEAP, select Protected EAP on that panel.
+If your server requires EAP-TTLS or EAP-FAST, install a third-party 802.1X Supplicant program like Cisco's Trust Agent on the client.
+Make sure that client and server EAP-specific properties match, including server certificate Trusted Root Authority, server domain name (optional) and tunneled authentication method (e.g., EAP-MSCHAPv2, EAP-GTC).
+If you are prompted to accept the server's certificate at connect time, examine the certificate carefully, verifying issuer and identity. Never add an unrecognized or suspicious certificate to your trusted list.
+If EAP-TLS problems persist, use a Web browser to inspect the client's certificate and make sure the certificate is valid (e.g., not expired).
+If PEAP problems persist, use CHAP Configure to prevent Windows auto-logon and enter a valid username and password when prompted.
+If you still haven't spotted the problem, consult your RADIUS server's 802.1X documentation for EAP configuration and debugging hints.
+Check intermittent network connectivity issues.
