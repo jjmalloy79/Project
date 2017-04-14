@@ -1,4 +1,3 @@
-
 package my.troubleshoot;
 import java.awt.Color;
 import java.awt.Font;
@@ -22,9 +21,6 @@ import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-
-
-
 /**
  *
  * @author joshuamalloy from JoMa Interactive
@@ -42,7 +38,7 @@ import javax.swing.JFrame;
  * And David Eve for helping troubleshooting
  * Network Connectivity Troubleshooting Series 0.17*/
 public class troubleshootUI extends javax.swing.JFrame {
-//Global Variables 
+    //Global Variables 
         // Variables declaration - do not modify                     
     private javax.swing.JButton Other;
     private javax.swing.JButton References;
@@ -74,7 +70,6 @@ public class troubleshootUI extends javax.swing.JFrame {
     //this is for the main files names
     private boolean firstSw = true;
     private int defaultSizeSw = 26;
-    
     private int defaultSizeW = 37;
     private int defaultSizeC = 11;
     private int defaultSizeR = 11;
@@ -173,7 +168,7 @@ public class troubleshootUI extends javax.swing.JFrame {
     private int theCounterSw = 2;
     private int theCounterO = 2;
     private int theCounterW = 2;
-    private final int theCounterRef = 2;
+    private int theCounterRef = 15;
     private final String computerShoot = "";
     private final String routerShoot = "";
     private final String otherShoot = "";
@@ -207,9 +202,7 @@ public class troubleshootUI extends javax.swing.JFrame {
     private final List<String> levelpc = new ArrayList<>();
     private final List<String> levelR = new ArrayList<>();
     private final Help Helper = new Help();
-    private final Font font = new Font("Courier", Font.BOLD,14);
-
-    
+    private final Font font = new Font("Courier", Font.BOLD,14);   
     public troubleshootUI() {
         
         initComponents();
@@ -235,7 +228,6 @@ public class troubleshootUI extends javax.swing.JFrame {
         javax.swing.border.Border border = BorderFactory.createLineBorder(Color.LIGHT_GRAY);
         textArea1.setBorder(BorderFactory.createCompoundBorder(border, BorderFactory.createEmptyBorder(10,10,10,10)));
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -650,8 +642,7 @@ public class troubleshootUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>                        
-
-/*This will be used to get the Command Prompt or Terminal*/    
+    /*This will be used to get the Command Prompt or Terminal*/    
     private void getProgram(String programName)
     {
         Runtime runtime = Runtime.getRuntime();     
@@ -666,7 +657,7 @@ public class troubleshootUI extends javax.swing.JFrame {
     private void exitButtonButton(java.awt.event.ActionEvent evt) {                                  
         System.exit(0);        //
     }                                 
-// This is the add button control
+    // This is the add button control
     private void addButtonButton(java.awt.event.ActionEvent evt) {                                 
         //disable and enabling features.
         addButton.setEnabled(false);
@@ -674,7 +665,7 @@ public class troubleshootUI extends javax.swing.JFrame {
         yesButton.setEnabled(true);
         noButton.setEnabled(true);
         levelUp.setText("");
-// NO tabs allowed to be touched while saving. Except help.
+    // NO tabs allowed to be touched while saving. Except help.
         Rules.setEnabled(false);
         Switch.setEnabled(false);
         Wifi.setEnabled(false);
@@ -702,7 +693,7 @@ public class troubleshootUI extends javax.swing.JFrame {
         reset = false;
         save = false;  
     }                                
-// Save Button
+    // Save Button
     private void saveButtonButton(java.awt.event.ActionEvent evt) {                                  
 
         addButton.setEnabled(false);
@@ -730,7 +721,7 @@ public class troubleshootUI extends javax.swing.JFrame {
         if(references)
            References.setEnabled(false);
     }                                 
-// yes button
+    // yes button
     private void yesButton(java.awt.event.ActionEvent evt) {                           
         try {
             yes();
@@ -739,8 +730,7 @@ public class troubleshootUI extends javax.swing.JFrame {
         }
                     
     }                          
-
-//No button
+    //No button
     private void noButton(java.awt.event.ActionEvent evt) {                          
         try {
             no();
@@ -749,7 +739,7 @@ public class troubleshootUI extends javax.swing.JFrame {
             Logger.getLogger(troubleshootUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }                         
-// Reset button 
+    // Reset button 
     private void resetButton(java.awt.event.ActionEvent evt) {                             
         addButton.setEnabled(false);
         resetButton.setEnabled(false);
@@ -777,7 +767,7 @@ public class troubleshootUI extends javax.swing.JFrame {
         else if(server)
             question.setText(" Are you sure you want to reset server section back to default? ");
     }                            
-//Switch Button
+    //Switch Button
     private void SwitchActionPerformed(java.awt.event.ActionEvent evt) {                                       
 
         try {
@@ -787,9 +777,8 @@ public class troubleshootUI extends javax.swing.JFrame {
             Logger.getLogger(troubleshootUI.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-    }                                      
-  
-// Rule Button 
+    }                                       
+    // Rule Button 
     private void RulesActionPerformed(java.awt.event.ActionEvent evt) {                                      
         addButton.setEnabled(false);
         resetButton.setEnabled(false);
@@ -879,7 +868,7 @@ public class troubleshootUI extends javax.swing.JFrame {
                          + "\n  Is it software or hardware?\n" 
                          + "\n  What procedure do I need to do?");        // TODO add your handling code here:
     }                                     
-// Other Button
+    // Other Button
     private void OtherActionPerformed(java.awt.event.ActionEvent evt) {                                      
         try {
             callOther();
@@ -888,7 +877,7 @@ public class troubleshootUI extends javax.swing.JFrame {
         }
        
     }                                     
-//Wifi Button
+    //Wifi Button
     private void WifiActionPerformed(java.awt.event.ActionEvent evt) {                                     
        
         try {
@@ -897,7 +886,7 @@ public class troubleshootUI extends javax.swing.JFrame {
             Logger.getLogger(troubleshootUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }                                    
-// Wired Button
+    // Wired Button
     private void WiredActionPerformed(java.awt.event.ActionEvent evt) {                                      
         try {
             callWired();
@@ -906,7 +895,7 @@ public class troubleshootUI extends javax.swing.JFrame {
         }
 
     }                                     
-// Router button
+    // Router button
     private void RouterActionPerformed(java.awt.event.ActionEvent evt) {                                       
         try {
             callRouter();
@@ -914,7 +903,7 @@ public class troubleshootUI extends javax.swing.JFrame {
             Logger.getLogger(troubleshootUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }                                      
-// server
+    // server
     private void ServerActionPerformed(java.awt.event.ActionEvent evt) {                                       
         try {
             callServer();
@@ -922,7 +911,7 @@ public class troubleshootUI extends javax.swing.JFrame {
             Logger.getLogger(troubleshootUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }                                      
-// traing Button
+    // traing Button
     private void TrainingActionPerformed(java.awt.event.ActionEvent evt) {                                         
        this.rule = false;
        this.switchs = false;
@@ -1000,7 +989,7 @@ public class troubleshootUI extends javax.swing.JFrame {
         Training.setOpaque(true);
         Training.setEnabled(false);
         question.setText(" ");
-       levelUp.setText(" ");
+        levelUp.setText(" ");
         textArea1.setText("\n  Training Process:\n" 
                          + "\n  Read and take a quiz on confidentiality.\n"
                          + "\n  Be introduced to the fellow workers if you haven't already met.\n"
@@ -1018,7 +1007,7 @@ public class troubleshootUI extends javax.swing.JFrame {
                          + "\n  Have some form of camera to take pictures to verify where connections are made."
                          + "\n");        // TODO add your handling code here:
     }                                        
-// References Button
+    // References Button
     private void ReferencesActionPerformed(java.awt.event.ActionEvent evt) {                                           
         this.rule = false;
         this.switchs = false;
@@ -1104,9 +1093,7 @@ public class troubleshootUI extends javax.swing.JFrame {
             Logger.getLogger(troubleshootUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         question.setText("");
-        levelUp.setText("");
-        
-        
+        levelUp.setText("");  
     }                                          
 
     private void cmdButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
@@ -1122,9 +1109,8 @@ public class troubleshootUI extends javax.swing.JFrame {
                  }
 // this is to open terminal in Mac os
         if(!enter){
-            File instFolder = new File(System.getProperty("user.dir"));
             try {
-                Runtime.getRuntime().exec(new String[] { "open", instFolder.toString() });
+                 Runtime.getRuntime().exec(new String[]{"/usr/bin/open", "-a", "/Applications/Utilities/Terminal.app"});
             } catch (IOException ex) {
                 Logger.getLogger(troubleshootUI.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1133,15 +1119,15 @@ public class troubleshootUI extends javax.swing.JFrame {
         if(!enter)
 // this is to open a terminal in Linux
            try {
-                Runtime.getRuntime().exec(new String[] { "/usr/bin/gnome-terminal"});
+                Runtime.getRuntime().exec(new String[]{"/bin/bash", "-c", "/usr/bin/gnome-terminal" });
                 enter = true;
             } catch (IOException ex) {
                 Logger.getLogger(troubleshootUI.class.getName()).log(Level.SEVERE, null, ex);
             }              
         }// ends if
-        
+        enter = false;
     }                                         
-// this calls another Class to display the help section
+    // this calls another Class to display the help section
     private void helpActionPerformed(java.awt.event.ActionEvent evt) {                                     
 
         try {
@@ -1171,27 +1157,23 @@ public class troubleshootUI extends javax.swing.JFrame {
         });
     }
  // This Section reads in just the Reference section since it doesnt have levels.
-    private void readIn(String filename) throws MalformedURLException, IOException//, IOException
-    {
-/**************Variables ****************/
+    private void readIn(String filename) throws MalformedURLException, IOException{
+    /**************Variables ****************/
        InputStream in = getClass().getResourceAsStream(filename);
        BufferedReader input = new BufferedReader(new InputStreamReader(in));
        textArea1.setText("");    
        //String input = "";
        String textFieldReadable = "";
        String tfr = "";
-       computerSize = 0;
+       /*computerSize = 0;
        routerSize = 0;
        serverSize = 0;
        otherSize = 0;
        switchSize = 0;
        wifiSize = 0;
-       referenceSize = 0;
-
+       referenceSize = 0;*/
        listRef.clear();
-
-
-/***************Try to catch the file trying to open**************/
+    /***************Try to catch the file trying to open**************/
     
        try {
             while (textFieldReadable != null){
@@ -1199,9 +1181,9 @@ public class troubleshootUI extends javax.swing.JFrame {
                 textFieldReadable = input.readLine();
                 if(!(textFieldReadable == (null)))
                 {  
-/****************************Puts file in the proper list...******************/
+    /*****************Puts file in the proper list...******************/
                     tfr = textFieldReadable;
-                    if(computer)
+                    /*if(computer)
                         listpc.add(tfr); 
                     if(router)
                         listR.add(tfr);
@@ -1213,12 +1195,12 @@ public class troubleshootUI extends javax.swing.JFrame {
                         listO.add(tfr);
                     if(wifi)
                         listW.add(tfr);
-                    if(references)
+                    if(references)*/
                         listRef.add(tfr);
                 }
                 
-/***********************Gets how big the file is...*************************/
-                if(computer)
+    /***************Gets how big the file is...******************/
+                /*if(computer)
                     computerSize++;
                 if(router)
                     routerSize++;
@@ -1230,7 +1212,7 @@ public class troubleshootUI extends javax.swing.JFrame {
                     otherSize++;
                 if(wifi)
                     wifiSize++;
-                if(references)
+                if(references)*/
                     referenceSize++;
                 
             }// ends while
@@ -1241,18 +1223,15 @@ public class troubleshootUI extends javax.swing.JFrame {
         catch (IOException ex) {
             System.out.println("unkownerror");
         } // ends catch
-
+       theCounterRef = referenceSize;
        if(!add || save)
        {
          printOut();
        }
        
     }//ends ReadIn
- 
-    
     /******************************This adds new data to files*/
-    private void addToFile() throws IOException, MalformedURLException, URISyntaxException
-    {   
+    private void addToFile() throws IOException, MalformedURLException, URISyntaxException{   
       String temp = "";
       String levelTemp ="";
        int sizeOf = 0;
@@ -1354,7 +1333,10 @@ public class troubleshootUI extends javax.swing.JFrame {
             if(other)
                 listO.add(stringEnter); // adds to the arraylist
             if(router)
-                listR.add(stringEnter); // adds to the arraylist
+                listR.add(stringEnter);// adds to the arraylist
+            if(references)
+                listRef.add(stringEnter);
+         
             if(!references){
 /**********************This writes to that file**********************/
             FileWriter writerlevel = new FileWriter(fileLevelName); 
@@ -1423,7 +1405,7 @@ public class troubleshootUI extends javax.swing.JFrame {
                     t = t + listpc.get(i);
                     lt = lt + levelpc.get(i);
 		}
-                System.out.println(t);
+                
                 textArea1.setText(t);
                 levelUp.setText(lt);
             }
@@ -1471,23 +1453,24 @@ public class troubleshootUI extends javax.swing.JFrame {
             }
               if (references)
             {
-                for(int i = 0; i < listR.size();i++)
+                for(int i = 0; i < listRef.size();i++)
 		{
-                    t = t + listR.get(i);
-                   
+                    t = t + listRef.get(i);
+                 System.out.print(listRef.size());
 		}
-                textArea1.setText(t);
-                //readIn(relRef);
+                
+                //textArea1.setText(t);
+               // defaultReadIn();
             }    
  
         stringEnter = "";
         userLevel = "";
     
     }
- /********************************Prints to text area**********/
+        /********************************Prints to text area**********/
     private void printOut() throws  IOException{     
-/******************Variables*************************************/
-
+    /******************Variables*************************************/
+       
         boolean noMore = false;
         int printCount = 0;
         int lprintCount = 0;
@@ -1544,7 +1527,7 @@ public class troubleshootUI extends javax.swing.JFrame {
         {
             listSize = listRef.size();
             saving = saveReference;
-            printCount = listRef.size(); 
+            printCount = theCounterRef; 
         }
         if(printCount == listSize && switchs)
             {
@@ -1593,7 +1576,7 @@ public class troubleshootUI extends javax.swing.JFrame {
                 {
                     if(printCount > i)    
                     {
-/*******************************This puts what is in the list into a temp***/             
+    /******************This puts what is in the list into a temp***/             
                         if(computer)
                             tempData = listpc.get(i);
                         if(switchs)
@@ -1616,8 +1599,9 @@ public class troubleshootUI extends javax.swing.JFrame {
                             else
                                 text = text + "\n  " + (i) +") " + tempData + "\n"; 
                         }
-                        else if(references)
+                        if(references)
                         {
+                      
                                 text = text + "\n" + tempData + "\n"; 
                         }
 
@@ -1685,13 +1669,12 @@ public class troubleshootUI extends javax.swing.JFrame {
                    
                 textArea1.setText(text);
                 }// ends for loop 
-     System.out.println(listSize);
-//************************displays which level should be involved******
+     //************************displays which level should be involved******
                 for(int i = 0; i < listSize; i ++)
                 {
                     if(lprintCount > i)    
                     {
-/*******************************This puts what is in the list into a temp***/             
+    /*************************This puts what is in the list into a temp***/             
                         if(computer)
                             ltempData = levelpc.get(i);
                         if(switchs)
@@ -1713,10 +1696,8 @@ public class troubleshootUI extends javax.swing.JFrame {
                 }// ends for loop              
         
     }
-
-    /*This is the Reset Section that puts everything back to default */
-    private void Reset() throws FileNotFoundException, IOException
-    {
+     /*This is the Reset Section that puts everything back to default */
+    private void Reset() throws FileNotFoundException, IOException{
         FileInputStream instream = null;
         FileOutputStream outstream = null;
         String inFileName = "";
@@ -1773,7 +1754,7 @@ public class troubleshootUI extends javax.swing.JFrame {
             inFileName = drelRef;
         }// ends references
 
-// this section copies one file to another file
+    // this section copies one file to another file
         if(!references)
     	try{
     	    File infile =new File(inFileNameLevel);
@@ -1832,18 +1813,16 @@ public class troubleshootUI extends javax.swing.JFrame {
     		ioe.printStackTrace();
     	 }       
 
-/***********This Section calls readIn to redisplay sections*******/
+    /*******This Section calls readIn to redisplay sections*******/
         if(switchs)
         {
             defaultReadIn();
-            //readInStream(relSw,rellSw);
-           
+
         }// ends if
         if(other)
         {
             defaultReadIn();
-            //readInStream(relO,rellO);
-          
+
         }// ends if
         if(computer)
         {
@@ -1862,7 +1841,7 @@ public class troubleshootUI extends javax.swing.JFrame {
         }// ends if
         if(references)
         {
-            readIn(relRef);
+            defaultReadIn();
         }// ends if
         if(router)
         {
@@ -1870,11 +1849,9 @@ public class troubleshootUI extends javax.swing.JFrame {
            
         }// ends if
 
-}
-   
-    private void readInStream(String filename, String levelname) throws MalformedURLException, IOException//, IOException
-    {
-/**************Variables ****************/
+}  
+    private void readInStream(String filename, String levelname) throws MalformedURLException, IOException{
+    /**************Variables ****************/
        InputStream in = getClass().getResourceAsStream(filename);
        BufferedReader input = new BufferedReader(new InputStreamReader(in));
        InputStream lin = getClass().getResourceAsStream(levelname);
@@ -1912,7 +1889,7 @@ public class troubleshootUI extends javax.swing.JFrame {
        levelS.clear();
        levelpc.clear();
 
-/***************Try to catch the file trying to open**************/
+    /***************Try to catch the file trying to open**************/
 
     
        try {
@@ -1921,7 +1898,7 @@ public class troubleshootUI extends javax.swing.JFrame {
                 ltextFieldReadable = linput.readLine();
                 if(!(ltextFieldReadable == (null)))
                 {  
-/****************************Puts file in the proper list...******************/
+        /*****************Puts file in the proper list...**********/
                     ltfr = ltextFieldReadable;
                      if(computer)
                         levelpc.add(ltfr); 
@@ -1937,7 +1914,7 @@ public class troubleshootUI extends javax.swing.JFrame {
                         levelW.add(ltfr);
                 }
                 
-/***********************Gets how big the file is...*************************/
+    /*****************Gets how big the file is...*****************/
              if(computer)
                     levelNumComputer++;
                 if(router)
@@ -1962,18 +1939,14 @@ public class troubleshootUI extends javax.swing.JFrame {
         linput.close();
         lin.close();
 
-      
-
-/***************Try to catch the file trying to open**************/
-
- 
+    /***************Try to catch the file trying to open**************/ 
        try {
             while (textFieldReadable != null){
                
                 textFieldReadable = input.readLine();
                 if(!(textFieldReadable == (null)))
                 {  
-/****************************Puts file in the proper list...******************/
+    /****************************Puts file in the proper list...************/
                     tfr = textFieldReadable;
                     if(computer)
                         listpc.add(tfr); 
@@ -1991,7 +1964,7 @@ public class troubleshootUI extends javax.swing.JFrame {
                         listRef.add(tfr);
                 }
                 
-/***********************Gets how big the file is...*************************/
+            /***********************Gets how big the file is...*********/
                 if(computer)
                     computerSize++;
                 if(router)
@@ -2016,12 +1989,10 @@ public class troubleshootUI extends javax.swing.JFrame {
         catch (IOException ex) {
             System.out.println("unkownerror");
         } // ends catch; 
-       
-      // if(!add )
-      // {
+
    
          printOut();
-      // }
+   
       
     }    
     private void yes() throws IOException, URISyntaxException {
@@ -2059,11 +2030,12 @@ public class troubleshootUI extends javax.swing.JFrame {
                 textArea1.setBackground(Color.WHITE);
                 // add section
             }
-// if saving            
+            // if saving            
             if(save)
             {
                 stringEnter = textArea1.getText();
-                userLevel = addedLevel.getText();
+                if(!references)
+                    userLevel = addedLevel.getText();
                 addToFile();
                 /***********************Reads in wired Computer information*******************/
                 if(computer)
@@ -2149,11 +2121,15 @@ public class troubleshootUI extends javax.swing.JFrame {
                 /***********************Reads in References information*******************/
                 if(references)
                 {
+                    if(theCounterRef <= referenceSize)
+                        theCounterRef++;
+                    //else
+                       // theCounterRef = referenceSize;
                     yesButton.setEnabled(false);
                     noButton.setEnabled(false);
                     question.setText("");
-                    
-                        readIn(relRef);
+                    printOut();
+                       // readIn(relRef);
 
                 }
                 
@@ -2346,8 +2322,9 @@ public class troubleshootUI extends javax.swing.JFrame {
                         printOut();   
                     }
                     if(references){
-                        readIn(relRef);
+                        //readIn(relRef);
                         question.setText("");
+                        printOut();
                     }
                     
                     if(router)
@@ -2406,7 +2383,7 @@ public class troubleshootUI extends javax.swing.JFrame {
               /***********************Reads in Switch information*******************/ 
             if(switchs)
             {
-                    //normalReadIn();
+                  
                     readInStream(relSw, rellSw); 
                     Switch.doClick();
                    
@@ -2603,8 +2580,7 @@ public class troubleshootUI extends javax.swing.JFrame {
         if(save)
             save = false;
     }                         
-// Reset button 
-
+    // Reset button 
     private void callSwitch() throws IOException{
 
         this.rule = false;
@@ -2680,7 +2656,6 @@ public class troubleshootUI extends javax.swing.JFrame {
             readInStream(relSw, rellSw);
 
     }
-
     private void callOther() throws IOException{
        this.rule = false;
        this.switchs = false;
@@ -2763,7 +2738,6 @@ public class troubleshootUI extends javax.swing.JFrame {
             readInStream(relO, rellO);        // TODO add your handling code here:
 
     }
-
     private void callWifi() throws IOException {
             this.rule = false;
             this.switchs = false;
@@ -2848,7 +2822,6 @@ public class troubleshootUI extends javax.swing.JFrame {
             readInStream(relW, rellW);         // TODO add your handling code here:
 
     }
-
     private void callWired() throws IOException {
        //Variables      
        this.rule = false;
@@ -2932,7 +2905,6 @@ public class troubleshootUI extends javax.swing.JFrame {
         readInStream(relCom,rellCom);
 
     }
-
     private void callRouter() throws IOException{
        this.rule = false;
        this.switchs = false;
@@ -3018,7 +2990,6 @@ public class troubleshootUI extends javax.swing.JFrame {
       
           
     }
-
     private void callServer() throws IOException {
        this.rule = false;
        this.switchs = false;
@@ -3101,9 +3072,8 @@ public class troubleshootUI extends javax.swing.JFrame {
 
       
     }
-    private void readStream(String filename, String levelname) throws MalformedURLException, IOException//, IOException
-    {
-/**************Variables ****************/
+    private void readStream(String filename, String levelname) throws MalformedURLException, IOException{
+        /**************Variables ****************/
        InputStream in = getClass().getResourceAsStream(filename);
        BufferedReader input = new BufferedReader(new InputStreamReader(in));
        InputStream lin = getClass().getResourceAsStream(levelname);
@@ -3350,89 +3320,14 @@ public class troubleshootUI extends javax.swing.JFrame {
             }
               if (references)
             {
-                readIn(relRef);
-            }    
- 
-    }
-    private void normalReadIn() throws IOException{
-        /**********************This clears only the list that is being read in by the text.***/
-            String t = "";
-            String lt = "";
-            if (switchs)
-            {
-              
-                for(int i = 0; i < listSw.size();i++)
+                for(int i = 0; i < defaultSizeRef;i++)
 		{
-                    if(i < 1)
-                        t = t + "\n  " + listSw.get(i) + "\n";  
-                    else
-                        t = t + "\n  " + (i) +") " + listSw.get(i) + "\n"; 
-		}
-                System.out.println(t);
-//                lt = levelSw.get(listSw.size());
-                textArea1.setText(t);
-                levelUp.setText(lt);
+                        t = t + "\n  "  + listRef.get(i) + "\n"; 
 
-            }
-            if (computer)
-            {
-                for(int i = 0; i < defaultSizeC;i++)
-		{
-                    t = t + listpc.get(i);
-                    lt = lt + levelpc.get(i);
 		}
-                lt = levelpc.get(defaultSizeC);
+            }   
                 textArea1.setText(t);
-                levelUp.setText(lt);
-            }
-             if (wifi)
-            {
-                for(int i = 0; i < listW.size();i++)
-		{
-                    t = t + listW.get(i);
-                    lt = lt + levelW.get(i);
-		}
-                textArea1.setText(t);
-                levelUp.setText(lt);
-            } 
-            
-            if (server)
-            {
-                for(int i = 0; i < defaultSizeS;i++)
-		{
-                    t = t + listS.get(i);
-                    
-		}
-                lt = levelS.get(defaultSizeS);
-                textArea1.setText(t);
-                levelUp.setText(lt);
-            }  
-            if (router)
-            {
-                for(int i = 0; i < defaultSizeR;i++)
-		{
-                    t = t + listR.get(i);
-                   
-		}
-                textArea1.setText(t);
-                levelUp.setText(lt);
-                lt = levelS.get(defaultSizeR);
-            }
-            if (other)
-            {
-                for(int i = 0; i < defaultSizeO;i++)
-		{
-                    t = t + listO.get(i);
-                    
-		}
-                lt = levelS.get(defaultSizeO);
-                textArea1.setText(t);
-                levelUp.setText(lt);
-            }
-              if (references)
-            {
-                readIn(relRef);
-            }    
+                levelUp.setText("");
  
     }
 }
